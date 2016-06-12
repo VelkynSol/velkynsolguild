@@ -36,7 +36,6 @@ gulp.task('sass', function() {
 // Concatenate & Minify JS //
 // ----------------------- //
 gulp.task('scripts', function() {
-	console.log('1231231npm');
     return 	gulp.src('./dev/scripts/*.js')
 		        .pipe(concat('app.js'))
 		        .pipe(gulp.dest('./dist/scripts'))

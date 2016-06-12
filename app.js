@@ -20,7 +20,7 @@ const app = express();
 let viewPath;
 
 if (process.env.NODE_ENV === 'production') {
-	viewPath = './views/';
+	viewPath = './dist/views/';
 } else {
 	viewPath = './dist/views/';
 
