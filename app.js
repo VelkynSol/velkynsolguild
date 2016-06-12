@@ -3,7 +3,7 @@
 // ------------------ //
 // Import config file //
 // ------------------ //
-const config = require('./config');
+const config = require('./server-config');
 // ---------------- //
 // App Dependencies //
 // ---------------- //
