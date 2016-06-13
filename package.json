@@ -10,7 +10,9 @@
     "gulp-jshint": "^2.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
-    "gulp-uglify": "^1.5.3"
+    "gulp-typescript": "^2.13.6",
+    "gulp-uglify": "^1.5.3",
+    "typescript": "^1.8.10"
   },
   "devDependencies": {},
   "engines": {

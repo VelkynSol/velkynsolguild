@@ -26,6 +26,7 @@ if (process.env.NODE_ENV === 'production') {
 
 	app.engine('html', ejs.renderFile);
 	app.set('views', __dirname + viewPath);
+	app.use(express.static('dist'));
 }
 
 app.set('view engine', 'ejs');
@@ -37,7 +38,7 @@ app.set('view engine', 'ejs');
 // ----- //
 // Index //
 // ----- //
-app.get('*', function(request, response, next) {
+app.get('/', function(request, response, next) {
 	response.sendfile(viewPath + 'index.html');
 });
 
