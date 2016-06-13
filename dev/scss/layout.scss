@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:400,700);
+// ---------------- Fonts ---------------- //
+/*
+	font-family : 'Open Sans', sans-serif;   
+	font-family : 'Raleway', sans-serif;
+*/
+// ---------------- Fonts ---------------- //
+
+body {
+	font-weight : 400;
+	font-family : 'Open Sans', sans-serif;
+	margin      : 0;
+}
+
+.curtain {
+	background : $curtain-background;
+	height     : 100%;
+    width      : 100%;
+    position   : absolute;
+    top        : 0;
+    left       : 0; 
+}
+
+.banner {
+	background-image      : url('../images/banner.jpg');
+	background-repeat     : no-repeat;
+    background-attachment : fixed;
+    background-position   : center; 
+    background-size       : cover;
+}
+
+.banner--second {
+	background-image : url('../images/banner-2.jpg');
+}
+
+.title, .subtitle {
+	text-align : center;
+}
+
+.title {
+	font-size : 40px;
+	color     : white; 
+}
+
+.subtitle {
+	font-size : 36px;
+	color     : white;
+}

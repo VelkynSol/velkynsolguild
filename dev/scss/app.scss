@@ -1,4 +1,11 @@
-.test {
-	color : yellow;
-	background: blue;
-}
+// --------- //
+// Variables //
+// --------- //
+$curtain-background : rgba(0,0,0, 0.5);
+
+// ------- //
+// Imports //
+// ------- //
+@import 'layout';
+@import 'pageHeader';
+@import 'full_screen';

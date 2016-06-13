@@ -24,7 +24,8 @@ const tsProject = ts.createProject('tsconfig.json');
 gulp.task('sass', function() {
     return gulp.src(config.Dev_SCSS)
         .pipe(sass({
-                outputStyle : 'compressed'
+                outputStyle  : 'compressed',
+                includePaths : config.Dev_Watchable_SCSS
             }))
         .pipe(concat('app.css'))
         .pipe(gulp.dest(config.Dist_SCSS))
@@ -34,7 +35,7 @@ gulp.task('sass', function() {
 // Concatenate & Minify Vendor JS //
 // ------------------------------ //
 gulp.task('vendor', function() {
-    return  tsProject.src()
+    return  gulp.src(config.Vendor_JS)
                   .pipe(concat('vendor.js'))
                   .pipe(gulp.dest(config.Dist_JS))
                   .pipe(rename('vendor.min.js'))
@@ -46,13 +47,20 @@ gulp.task('vendor', function() {
 // Concatenate & Minify JS //
 // ----------------------- //
 gulp.task('scripts', function() {
-    return 	tsProject.src()
-                  .pipe(ts(tsProject))
-		          .pipe(concat('app.js'))
-		          .pipe(gulp.dest(config.Dist_JS))
-		          .pipe(rename('app.min.js'))
-		          .pipe(uglify())
-	              .pipe(gulp.dest(config.Dist_JS));
+    return 	gulp.src(config.Dev_JS)
+		              .pipe(concat('app.js'))
+		              .pipe(gulp.dest(config.Dist_JS))
+		              .pipe(rename('app.min.js'))
+		              .pipe(uglify())
+	                .pipe(gulp.dest(config.Dist_JS));
+});
+
+// ------------- //
+// Minifies Html //
+// ------------- //
+gulp.task('html', function() {
+    return  gulp.src(config.Dev_Views)
+                  .pipe(gulp.dest(config.Dist_Views))
 });
 
 // ----------------------- //
@@ -60,11 +68,12 @@ gulp.task('scripts', function() {
 // ----------------------- //
 gulp.task('watch', function() {
     gulp.watch(config.Dev_JS, ['scripts']);
-    gulp.watch(config.Dev_SCSS, ['sass']);
+    gulp.watch(config.Dev_Watchable_SCSS, ['sass']);
+    gulp.watch(config.Dev_Views, ['html']);
 });
 
 // ------------ //
 // Default Task //
 // ------------ //
-gulp.task('default', ['sass', 'scripts', 'watch']);
+gulp.task('default', ['sass', 'scripts', 'vendor', 'html','watch']);
 
