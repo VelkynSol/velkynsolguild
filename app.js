@@ -21,6 +21,10 @@ let viewPath;
 
 if (process.env.NODE_ENV === 'production') {
 	viewPath = './dist/views/';
+
+	app.engine('html', ejs.renderFile);
+	app.set('views', __dirname + viewPath);
+	app.use(express.static('dist'));
 } else {
 	viewPath = './dist/views/';
 
